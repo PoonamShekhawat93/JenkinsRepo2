@@ -1,0 +1,9 @@
+node {
+   stage('Build') {
+     build job: 'samplejob1', propagate: false
+   }
+   input 'Do you want to proceed to the Deployment?'
+   stage('deploy') {
+     build job: 'samplejob2',  propagate: false
+   }
+}
